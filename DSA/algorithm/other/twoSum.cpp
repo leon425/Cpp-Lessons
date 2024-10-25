@@ -29,10 +29,11 @@ std::vector<int> twoSum(std::vector<int> nums, int target) {
 // Only works on sorted list. If we were to sort the list first, it's possible by using O(nlogn) sorting techniques
 std::vector<int> twoSum2(std::vector<int> nums, int target) {
     std::vector numsCopy = nums;
+    
     // Sort it First. 1 Problem: we need to refer to the original index. Make a for loop again
-    std::sort(nums.begin(),nums.end(), [](int a, int b) { // Ascending order by passing custom function
-        return a < b;
-    });
+    // std::sort(nums.begin(),nums.end(), [](int a, int b) { // Ascending order by passing custom function
+    //     return a < b;
+    // });
 
 
     if (nums.size() == 0 || nums.size() == 1) {
@@ -59,7 +60,6 @@ std::vector<int> twoSum2(std::vector<int> nums, int target) {
     }
 
     // Refer to the original index by the original list
-    for 
 
     return result;
 };
