@@ -1,0 +1,4 @@
+std::sort 
+O(n logn)
+
+Hybrid sorting algorithm known as introsort, which combines quicksort, heapsort, and insertion sort.
