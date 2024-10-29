@@ -48,6 +48,7 @@
         "xlocmon": "cpp",
         "xloctime": "cpp",
         "algorithm": "cpp",
-        "array": "cpp"
+        "array": "cpp",
+        "sstream": "cpp"
     }
 }
