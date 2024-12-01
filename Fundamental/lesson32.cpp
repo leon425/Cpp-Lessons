@@ -6,6 +6,11 @@ int main() {
     int num = 10;
     double result = static_cast<double>(num) / 3;
 
+    // Convert char to int
+    char a = '4';
+    int ia = a - '0'; // equivalent to ((int)a) - ((int)'0') - something to do with ASCII
+    std::cout << ia << '\n';
+
     // Convert int to string
     std::string s = std::to_string(42);
 

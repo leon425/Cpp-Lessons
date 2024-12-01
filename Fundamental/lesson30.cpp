@@ -14,6 +14,12 @@ int main() {
     std::vector<std::string> foods = {"grapes","lemons"};
     foods.push_back("Tortilla"); //push a new element and grow the size
 
+    // Insert at specific element
+    foods.insert(foods.begin(),"Chips"); // insert in the first element of the vector
+    foods.insert(foods.begin()+3,"Pineapple"); // insert at index 3
+
+    // vec.begin() returns an iterator to te first element in the vector.
+
     std::cout << foods.size() << '\n';
 
     std::vector<int> ages;
@@ -38,9 +44,19 @@ int main() {
     }
     std::cout << std::endl;
 
+    // Resizing a 2D vector can be achieved by resizing the row first, then loop each row to resize the column. However, there is an alternative
+    // to do it in 1 step. 
+    std::vector<std::vector<int>> list1;
+    list1.resize(5,std::vector<int>(2,0)); //list1.resize(row,std::vector<int>(column,0));   // Note: 0 is the initial value.
+    // or
+    std::vector<std::vector<int>> list2(5,std::vector<int>(2,0));  //std::vector<std::vector<int>> list2(row,std::vector<int>(column,0));
+
 
     return 0;
 }
 
 // Notes: Use size()
 // sizeof() wont work on std::vector because ....
+
+// Notes: erasing the first element in the vector requires O(n) times because all the elements left in the vector must be shifted left. erasing the
+// last element of the vector does indeed takes O(1)

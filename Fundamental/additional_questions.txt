@@ -1,0 +1,1 @@
+1) How does std::vector and std::deque works on providing dynamic memory? It's said that deque works as an array of block. How so?

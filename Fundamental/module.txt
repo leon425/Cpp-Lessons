@@ -30,4 +30,7 @@ lesson29 = OOP (+ constructor, overloaded constructor, abstraction, inheritance)
 lesson30 = Vector Function
 lesson31 = std::sort
 lesson32 = Type Casting
+lesson33 = Pair
+lesson34 = std::priority_queue
+lesson35 = std::deque
 

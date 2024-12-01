@@ -9,7 +9,8 @@ int main() {
 
     std::string name = "Bro";
 
-    std::string *pName = &name; // 'p' is a naming convention
+    std::string* pName = &name; // 'p' is a naming convention // * is the declaration of a pointer. std::string* means a pointer that points to a 
+                                // string data type
 
     std::cout << pName << '\n'; // get the address
     std::cout << *pName << '\n'; // get the value behind that address. Dereference
@@ -29,6 +30,19 @@ int main() {
     if (pointer == nullptr) {
         std::cout << "Address was not assigned\n";
     }
+
+    // When you modify the deference of the pointer, the value which the pointer points will also change
+    x = 124;
+    *pointer = *pointer + 3;
+    std::cout << x << '\n'; // 127
+
+// Pointer to pointer
+    int x = 5;
+    int* px = &x;
+    int** q = &px; //int** means it's a pointer that points to a pointer which points to an int
+    std::cout << *(*q) << '\n'; //5  // The bracket is unecessary but it's a good practice for coherence.
+    std::cout << *q << '\n'; // The address of x. Only dereference q, and not px. Still need to dereference px
+    std::cout << q << '\n'; // The address of px
 
 // Array & Pointer
     int arr[5] = {1, 2, 3, 4, 5};

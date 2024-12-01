@@ -56,6 +56,14 @@ void swapByReference(char &x, char &y) {
     y = temp;  
 }
 
+// Or use Pointer
+void swapByReferencePointer(char* p, char* q) {
+    char temp;
+    temp = *p;
+    *p = *q;
+    *q = temp;
+}
+
 //const reference parameter (can't change value)
 void printInfo(const std::string &name, const int &age) {
     std::cout << name << '\n';

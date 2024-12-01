@@ -21,7 +21,7 @@ class LinkedList {
         LinkedList() : head(nullptr), tail(nullptr), length(0) {}
 
         void appendList(int data) {
-           Node* newNode = new Node(data);
+           Node* newNode = new Node(data); // A pointer of Node and allocate Node(data) to a heap
             if (!head) {
                 head = newNode;
                 tail = newNode;

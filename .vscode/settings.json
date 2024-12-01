@@ -49,6 +49,8 @@
         "xloctime": "cpp",
         "algorithm": "cpp",
         "array": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "queue": "cpp",
+        "deque": "cpp"
     }
 }

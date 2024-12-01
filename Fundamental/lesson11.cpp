@@ -28,5 +28,8 @@ int main() {
     //count -> #include <algorithm>
     std::count(name.begin(),name.end(),'ab');
 
+    // Slice
+    std::string slice = name.substr(0,5); // slice from position 0 with length 5
+
     return 0;
 }

@@ -15,6 +15,11 @@ int main() {
     bool hasGraduated = true;
     std::string name = "Bro";
 
+    long a = 9223283293829323; // default is signed.
+    signed long b = -132932893232;
+    unsigned long c = 1238429382932;
+    long long d = 1298293829382938293;
+
     std::cout << "Hello " << name << ". My price is " << price;
 
 // Const 

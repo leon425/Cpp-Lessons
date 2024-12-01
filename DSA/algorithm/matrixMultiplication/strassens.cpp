@@ -104,15 +104,14 @@ int matrixSize(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b)
 }
 
 std::vector<std::vector<int>> mm(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b, int n = -1) {
-    std::vector<std::vector<int>> c;
-    c.resize(n,std::vector<int>(n,0));
-
-    //if (a.size())
-    
     if (n == -1) {
         n = matrixSize(a,b);
     }
 
+    // The n calculation is not valid considering the answer doesn't always have the same row and column
+    std::vector<std::vector<int>> c;
+    c.resize(n,std::vector<int>(n,0));
+    
     // Pad the Matrix
     a = matrixPadding(a);
     b = matrixPadding(b);
@@ -207,8 +206,21 @@ int main() {
         {5,7}
     };
 
+    std::vector<std::vector<int>> matrix5 = 
+    {
+        {1,2},
+        {3,4},
+    };
+
+    std::vector<std::vector<int>> matrix6 = 
+    {
+        {1,-1},
+        {-2,1},
+    };
+
+
     //std::vector<std::vector<int>> result = mm(matrix1,matrix2,4);
-    std::vector<std::vector<int>> result = mm(matrix3,matrix4,4);
+    std::vector<std::vector<int>> result = mm(matrix5,matrix4);
 
     for (int i=0;i<result.size();i++) {
         for (int j=0;j<result[i].size();j++) {

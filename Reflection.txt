@@ -1,0 +1,15 @@
+Saturday/30/11/2024
+    Effective since you learn:
+    1) The importance of priority_queue instead of sorting 
+    2) The method of deque and its importance instead of vector
+    3) malloc, realloc, calloc, free and strengthen new and delete knowledge & overall dynamic memory concept
+    4) The importance of two pointer, instead of recursion. And its application
+    5) Reverse a Linked List (at 20:00 after dinner. Your brain was tired but you were "iseng2 aja" to try to reverse it)
+    6) Implement & Explore the concept of stack
+    7) Strengthen the concept of pointer & struct. '.' and '->'.
+
+
+
+
+
+0) The application of dynamic programming in longest palindromic substring

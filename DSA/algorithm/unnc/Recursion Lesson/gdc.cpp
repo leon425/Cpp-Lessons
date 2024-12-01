@@ -14,7 +14,7 @@ int gcd(int n, int m) {
 
 
 int main() {
-    std::cout << gcd(2022,123450) << '\n';
+    std::cout << gcd(21,14) << '\n';
 
     return 0;
 }
