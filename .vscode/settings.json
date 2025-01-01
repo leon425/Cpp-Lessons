@@ -51,6 +51,12 @@
         "array": "cpp",
         "sstream": "cpp",
         "queue": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "stack": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "map": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp"
     }
 }

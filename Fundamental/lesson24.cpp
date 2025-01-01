@@ -6,6 +6,8 @@ int main() {
 // Dynamic Memory = Memory that is allocated after the program is already compiled & running
                 // use the 'new' operator to allocate memory in the heap rather than the stack
                 // useful when we don't know how much memory we will need
+                // However, after the dynamic memory is allocated, we can't change its size. The solution is to create a new array, then transfer
+                // the old data to the new array, however this takes O(n)
 
 // C syntax malloc, calloc, realloc, free
 

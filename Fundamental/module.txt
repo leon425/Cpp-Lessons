@@ -33,4 +33,56 @@ lesson32 = Type Casting
 lesson33 = Pair
 lesson34 = std::priority_queue
 lesson35 = std::deque
+lesson36 = std::stack
+lesson37 = std::queue
+lesson38 = std::list
+lesson39 = std::map
+
+
+Next Lessons: (Refer to: https://chatgpt.com/c/6768ea82-0b98-8005-b8e6-c4c06f9627ac)
+- Lambda expressions
+- Iterator
+- const auto 
+- Example of complex types
+- decltype
+- Custom Structure implementation (struct)
+- review Enum & other things you forgot
+- Hashmap
+- This problem is a minimum vertex cover in a bipartite graph, 
+which can be solved using König's theorem or by using a maximum matching algorithm.
+- Tarjan's strongly connected component algorithm
+- Permutation & Combination
+- How did euler find Euler path and circuit theorem?
+- std::set, std::multiset, std::map, std::multimap
+- LCRS implementation. (Real tree)
+
+- Create binary tree using class. Refer to linkedlist.
+- Which one's better? using struct or class? How to free memory in Tree? It's either BFS or DFS. Traverse, then delete.
+- Free memory of tree in all files, including UNNC.
+- bool operator() inside struct and any other shit. e.g
+
+
+
+
+
+
+
+
+DIJKSTRA
+Label your vertex visited.
+Start with 0 cost for current vertex
+List all the vertex's possible destination. 
+Go to each destination
+Record the cost for each possible destination. Compare to the past cost.
+
+Find the smallest cost of destination using priority queue (I guess)
+Change the current vertex to that destination.
+
+Repeat the process until the final destination is reached.
+Then, retrace all the path backwards. (Explain more in detail later)
+
+PRIMS
+find the smallest edge.
+
+
 

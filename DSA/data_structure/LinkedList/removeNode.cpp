@@ -21,7 +21,7 @@ class Solution {
             if (head->next != nullptr) {
                 head->val == val ? helper(head->next,prevNode,val) : helper(head->next,prevNode->next,val);
             }
-            return prevNode->next;
+            return prevNode->next;fdfdfd
         }
 
         ListNode* removeElements(ListNode* head,int val) {

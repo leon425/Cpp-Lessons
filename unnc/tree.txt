@@ -1,0 +1,29 @@
+void insertBST(int x, Node* item) {
+    if (isLeaf(item)) {
+        return node(leaf(),x,leaf());
+    } 
+
+    // if we know that the new node (item) is inserted in the left of this current node
+    if (isLeaf(left(item)) && x < root(item)) {
+        item = node(node(leaf,x,leaf),root(item),whatever the initial value is);
+        return;
+    }
+
+    // if we know that the new node (item) is inserted in the right of this current node
+    if (isLeaf(right(item)) && x > root(item)) {
+        item = node(whatever the initial value is, root(item), node(leaf,x,leaf));
+        return;
+    }
+
+    if (x < root(item)) {
+        return insertBST(x, left(item));
+    }
+    if (x > root(item)) {
+        return insertBST(x, right(item));
+    }
+
+}
+
+
+node(insertBST(2,left(t)),4,5)
+node(node(leaf,1,insertBST(x,leaf)), 4, node(leaf,5,leaf))

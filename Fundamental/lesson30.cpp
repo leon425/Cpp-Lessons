@@ -6,8 +6,7 @@
 // Vector Slicing Function (Exclusive)
 std::vector<int> sliceVector(const std::vector<int>& vec, int start, int end) {
     // Use the range constructor of std::vector to create a slice
-    std::vector<int> result(vec.begin() + start, vec.begin() + end);
-    return result;
+    return std::vector<int> (vec.begin() + start, vec.begin() + end); 
 }
 
 int main() {

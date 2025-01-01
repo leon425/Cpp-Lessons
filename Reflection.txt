@@ -8,8 +8,9 @@ Saturday/30/11/2024
     6) Implement & Explore the concept of stack
     7) Strengthen the concept of pointer & struct. '.' and '->'.
 
-
-
+Sunday/01/12/2024
+    1) Check the validity of parenthesis - stack easiest implementation
+    2) The theory & introduction of prefix, infix, postfix
 
 
 0) The application of dynamic programming in longest palindromic substring

@@ -1,54 +1,14 @@
+#include "maincode.h"
 #include <iostream>
 #include <vector>
 #include <utility>
 
-// Note : Index start at 1 and not 0
+// To run the file:
+// cd "c:\Users\bleon\OneDrive\Programming\c++\unnc\" ; if ($?) { g++ insertionSort.cpp maincode.cpp -o insertionSort } ; if ($?) { .\insertionSort }  
 
-std::vector<int> cons(int x, std::vector<int> list) {
-    list.insert(list.begin(),x);
-    return list;
-}
-
-bool isEmpty(std::vector<int> list) {
-    if (list.size() == 0) {
-        return true;
-    } 
-    return false;
-}
-
-int value(std::vector<int> list) {
-    return list[0];
-}
-
-std::vector<int> tail(std::vector<int> list) {
-    list.erase(list.begin());
-    return list;
-}
-
-
-// Modified Function
-int length(std::vector<int> list) {
-    if (isEmpty(list)) {
-        return 0;
-    }
-    return 1 + length(tail(list));
-}
-
-int getNth(int n, std::vector<int> list) {
-    if (n == 1) {
-        return value(list);
-    } else {
-        return getNth(n-1,tail(list));
-    }
-}
-
-std::vector<int> delNth(int n, std::vector<int> list) {
-    if (n == 1) {
-        return tail(list);
-    } else {
-        return cons(value(list),delNth(n-1,tail(list)));
-    }
-}
+// Alternative Way
+// g++ insertionSort.cpp maincode.cpp -o insertionSort
+// Random knowledge on running an exe: program.exe. ./program.exe
 
 // Delete a list from i to j (Reverse slice)
 std::vector<int> cut(std::vector<int> list, int i, int j) {
@@ -325,6 +285,7 @@ int main() {
     // subset Algorithm
     std::cout << subset({8,5,4},{5,4,2,8,1}) << '\n';
 
+    std::cout << "Hellohh" <<'\n';
 
 
     return 0;

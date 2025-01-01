@@ -8,6 +8,7 @@ class Node {
         Node* prev;
 
         Node(int val) : data(val), next(nullptr), prev(nullptr) {}
+        Node(int val, Node* next, Node* prev) : data(val), next(next), prev(prev) {}
 
 };
 

@@ -6,7 +6,7 @@
 //overloaded constructor = multiple constructor w/ same name but different parameter
                 // allos for varying arguments when instantiating an object
 
-// Abstraction = hiding unnecessary dtra form outside a class
+// Abstraction = hiding unnecessary data form outside a class
 // getter = function that makes a private attribute READABLE
 // setter = function that makes a private attribute WRITABLE
 
@@ -102,6 +102,7 @@ int main() {
     human1.occupation = "scienctist";
     human1.age = 69;
 
+    // using constructor
     Student student1("Spongebob", 25, 3.89);
     Student student2("James Bond", "John Doe");
     Student student3;

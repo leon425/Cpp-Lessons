@@ -1,0 +1,2 @@
+While std::list is great for linked-list-style operations, use it only when frequent insertions and deletions are required. 
+Otherwise, std::vector is usually more efficient due to its cache-friendly, contiguous memory allocation.

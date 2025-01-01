@@ -48,7 +48,7 @@ std::vector<int> mergeSort(std::vector<int> list, int l = -1, int h = -1) {
 
 
 int main() {
-    std::vector<int> list = {9,3,7,5,6,4,8,2};
+    std::vector<int> list = {2, 15, 7, 8, 23, 10, 12, 37, 4, 17, 18, 20, 9, 25, 14};
 
     // Don't do this (Calling the mergeSort twice)
     // for (int i;i<mergeSort(list).size();i++) {

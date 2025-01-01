@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 struct student {
     std::string name;
@@ -53,6 +54,18 @@ int main() {
     // 1 -> 2 -> 3 -> 5
     // node4 -> node3 -> node2 -> node1
 
+    // Vector/List of cars
+    std::vector<Car> carForSales;
+    carForSales.emplace_back("911",2000,"White");
+    carForSales.emplace_back("Phantom",2000,"White");
+    carForSales.emplace_back("R8",2000,"White");
+
+    for (const auto& car : carForSales) {
+        if (car.model == "R8") {
+            std::cout << "The color of the R8 is " << car.color;
+            break;
+        }
+    }
 
     return 0;
 }

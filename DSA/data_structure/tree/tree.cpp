@@ -8,7 +8,6 @@ class Node {
 
     Node(int data) : data(data), right(nullptr), left(nullptr) {}
 
-    
 };
 
 class Tree {
@@ -68,12 +67,6 @@ int main() {
     tree.preorder(root,root);
     tree.inorder(root,root);
     tree.postorder(root,root);
-
-
-
-
-
-
 
 
     return 0;

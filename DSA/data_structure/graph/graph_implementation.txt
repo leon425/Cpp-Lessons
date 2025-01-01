@@ -1,0 +1,14 @@
+In adjacency List:
+    - Use Vector of Vectors:
+        -> When the graph is dense or moderately sparse.
+        -> When iteration and cache performance are critical.
+        -> When the focus is on simplicity and compatibility with STL algorithms.
+
+    - Use Vector of Linked List Heads:
+        -> When the graph is very sparse.
+        -> When frequent edge deletions are required.
+        -> When memory usage due to resizing is a concern. (insertion takes O(1) deletion takes O(n))
+
+    In most cases, a vector of vectors is preferred for its simplicity, better performance in modern systems, 
+    and reduced memory overhead. However, for graphs with frequent edge deletions or extremely sparse edges,
+    vector of linked list heads can be beneficial.

@@ -11,7 +11,7 @@ int main() {
 
     int num = rand(); //entirely random number between 0 and 32767
 
-    int num2 = (rand() % 6) + 1; //Get the random number of 0 to 6
+    int num2 = (rand() % 6) + 1; //Get the random number of 1 to 6
 
     //random string (not using array or linked list, but using variable & switch)
     std::cout << getComputerChoice();
