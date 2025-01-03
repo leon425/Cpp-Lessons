@@ -8,11 +8,6 @@ void swapVar(int& num1, int& num2) {
     num2 = temp;
 }
 
-int randomPivotSelection(int length) {
-    srand(time(NULL)); 
-    return (rand() % length); //Get the random number of 0 to length
-}
-
 // For first element pivoting
 void quickSortHelper(std::vector<int>& list, int l, int h) {
     int pivot = list[l]; // Currently, the pivot is the first element
@@ -44,15 +39,20 @@ void quickSortHelper(std::vector<int>& list, int l, int h) {
 
 // For random element pivoting
 void quickSortHelper2(std::vector<int>& list, int l, int h) {
-    int pivotIndex = randomPivotSelection(h);
+    // Base Case
+    if (l>=h) return;
+
+
+    int pivotIndex = l + rand() % (h-l+1); // random pivot between l & h
     int pivot = list[pivotIndex]; // Currently, the pivot is the first element
     int i = l; // i point to the second element
     int j = h; // j point to the last element
 
-    // Base Case
-    if (l>=h) return;
+    // Move the pivot to the first element
+    swapVar(list[pivotIndex],list[l]);
+    pivotIndex = l;
 
-    while (i < j) { // i <= j
+    while (i <= j) { // i <= j
         while (list[i] <= pivot && i <= h) {
             i++;
         }
@@ -60,11 +60,6 @@ void quickSortHelper2(std::vector<int>& list, int l, int h) {
             j--;
         }
         if (i < j) {  // if (i <= j) is invalid because there's no point of swapping the same element
-
-            // Change the pivotIndex since the pivot is being swapped by other element
-            if (i == pivotIndex) pivotIndex = i;
-            if (j == pivotIndex) pivotIndex = j;
-            
             swapVar(list[i],list[j]);
         }
     }
@@ -76,8 +71,38 @@ void quickSortHelper2(std::vector<int>& list, int l, int h) {
     quickSortHelper2(list,j+1,h);
 }
 
+// For random element pivoting - ChatGPT version (different two pointer method)
+void quickSortHelper3(std::vector<int>& list, int l, int h) { 
+    // Base case
+    if (l >= h) return;
+
+    // Random pivot selection
+    int pivotIndex = l + rand() % (h-l+1); // random pivot between l & h
+    int pivot = list[pivotIndex];
+
+    // Move pivot to the end for easier partitioning
+    swapVar(list[pivotIndex], list[h]);
+    pivotIndex = h;
+
+    // Partitioning
+    int i = l;
+    for (int j = l; j < h; j++) {
+        if (list[j] <= pivot) {
+            swapVar(list[i], list[j]);
+            i++;
+        }
+    }
+
+    // Place pivot in its correct position
+    swapVar(list[i], list[pivotIndex]);
+
+    // Recursively sort subarrays
+    quickSortHelper3(list, l, i - 1);
+    quickSortHelper3(list, i + 1, h);
+}
 
 std::vector<int> quickSort(std::vector<int> list) {
+    srand(time(NULL));
     std::vector<int> result = list;
     // quickSortHelper(result,0,result.size()-1); // first element pivot
     quickSortHelper2(result,0,result.size()-1);

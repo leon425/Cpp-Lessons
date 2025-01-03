@@ -1,5 +1,5 @@
-#include "maincode.h"
 #include <iostream>
+//#include "maincode.h"
 #include <vector>
 #include <utility>
 
@@ -9,6 +9,68 @@
 // Alternative Way
 // g++ insertionSort.cpp maincode.cpp -o insertionSort
 // Random knowledge on running an exe: program.exe. ./program.exe
+
+
+// Note : Index start at 1 and not 0
+std::vector<int> cons(int x, std::vector<int> list) {
+    list.insert(list.begin(),x);
+    return list;
+}
+
+bool isEmpty(std::vector<int> list) {
+    if (list.size() == 0) {
+        return true;
+    } 
+    return false;
+}
+
+int value(std::vector<int> list) {
+    if (!isEmpty(list)) {
+        return list[0];
+    }
+    throw std::runtime_error("List is Empty");
+}
+
+std::vector<int> tail(std::vector<int> list) {
+    if (!isEmpty(list)) {
+        list.erase(list.begin());
+        return list;
+    }
+    throw std::runtime_error("List is Empty");
+}
+
+
+// Modified Function
+int length(std::vector<int> list) {
+    if (isEmpty(list)) {
+        return 0;
+    }
+    return 1 + length(tail(list));
+}
+
+int getNth(int n, std::vector<int> list) {
+    if (n == 1) {
+        return value(list);
+    } else {
+        return getNth(n-1,tail(list));
+    }
+}
+
+std::vector<int> delNth(int n, std::vector<int> list) {
+    if (n == 1) {
+        return tail(list);
+    } else {
+        return cons(value(list),delNth(n-1,tail(list)));
+    }
+}
+
+int max(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+
 
 // Delete a list from i to j (Reverse slice)
 std::vector<int> cut(std::vector<int> list, int i, int j) {
@@ -207,6 +269,30 @@ int fakeLog(int x, int y) {
     return fakeLogHelper(x,y,1,x);
 }
 
+// Slice (inclusive) // start from index 1
+std::vector<int> slice(std::vector<int> list, int start, int end) {
+    if (start == 1 && end == 1) {
+        return cons(value(list),{});
+    } else if (start == 1 && end > 1) {
+        return cons(value(list),slice(tail(list),start,end-1));
+    } else {
+        return slice(tail(list),start-1,end-1);
+    }
+}
+
+// MergeSort 2nd version
+std::vector<int> mergeSort2(std::vector<int> list) {
+    if (isEmpty(tail(list)) || isEmpty(list)) {
+        return list;
+    } else {
+        int mid = length(list)/2+1;
+        std::vector<int> list1 = slice(list,1,mid-1);
+        std::vector<int> list2 = slice(list,mid,length(list));
+        return merge(mergeSort2(list1),mergeSort2(list2));
+    
+    }
+}
+
 int main() {
     std::vector<int> list = {4,5,2,3,1};
     std::vector<int> list2 = {2,9,8,5,7,4,3};
@@ -284,6 +370,20 @@ int main() {
 
     // subset Algorithm
     std::cout << subset({8,5,4},{5,4,2,8,1}) << '\n';
+
+    // slice (inclusive) (from index 1) Algorithm
+    std::vector<int> result5 = slice({7,9,3,2,5,1,4,7,8},1,4);
+    for (int i=0; i<result5.size(); i++) {
+        std::cout << result5[i] << " ";
+    }
+    std::cout << '\n';
+
+    // MergeSort2 Algorithm
+    std::vector<int> result6 = mergeSort2({7,9,3,2,5,1,4,7,8});
+    for (int i=0; i<result6.size(); i++) {
+        std::cout << result6[i] << " ";
+    }
+    std::cout << '\n';
 
     std::cout << "Hellohh" <<'\n';
 

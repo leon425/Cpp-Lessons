@@ -37,7 +37,6 @@ Node* right(Node* root) {
     return root->right;
 }
 
-
 // Custom Algorithm
 
 int size(Node* root) {
@@ -88,6 +87,26 @@ Node* deleteLeaf(Node* t) {
     }
 }
 
+int maxBST(Node* t) {
+    if (isLeaf(t)) {
+        return 0;
+    } else if (isLeaf(right(t))) {
+        return root(t);
+    } else {
+        return maxBST(right(t));
+    }
+}
+
+int minBST(Node* t) {
+    if (isLeaf(t)) {
+        return 0;
+    } else if (isLeaf(left(t))) {
+        return root(t);
+    } else {
+        return minBST(left(t));
+    }
+}
+
 bool isBST(Node* t) {
     // If the tree is nullptr, it's a valid BST
     if (isLeaf(t)) {
@@ -128,18 +147,31 @@ bool isBSTRevised(Node* t) {
     }
 
     // Check left subtree
-    if (!isLeaf(left(t)) && root(left(t)) >= root(t)) {
+    if (!isLeaf(left(t)) && root(left(t)) >= root(t) && root(t) < maxBST(left(t))) {
         return false; // Left child must be less than the root
     }
 
     // Check right subtree
-    if (!isLeaf(right(t)) && root(right(t)) <= root(t)) {
+    if (!isLeaf(right(t)) && root(right(t)) <= root(t) && root(t) > minBST(right(t))) {
         return false; // Right child must be greater than the root
     }
 
     // Recursively check left and right subtrees
     return isBSTRevised(left(t)) && isBSTRevised(right(t));
 }
+
+// Node* convert(std::vector<int> list) {
+//     if (length(list) == 0) return leaf();
+//     if (length(list) == 1) return node(leaf(),getNth(list,1),leaf());
+//     else {
+//         int mid = length(list)/2+1;
+//         return node(convert(slice(list,1,mid-1)),getNth(mid),convert(slice(list,mid+1,length(list))));
+//     }
+// }
+/*
+Don't need to create condition for the existence of left child or right child because if one of them is not available (won't be created), the program
+will just return a leaf() / nullptr. This is due to slice() property which returns an empty list if start > end or if end > lenfth(list)
+*/
 
 std::vector<int> BFS(Node* root) { // O(n)
     std::vector<int> list;
