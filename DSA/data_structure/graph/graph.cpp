@@ -271,7 +271,7 @@ class Graph {
             if (destinationExist) availableVertex.push_back(currentEdge.first.destination);
 
             // MISSING 1 CONDITIONAL => LIST THE EDGES THAT DOESN'T CREATE A CYCLE. IF THE EDGE CREATE A CYCLE, DELETE IT FROM THE COPYADJLIST
-            // List the edges connected to the current spanning tree's verticesc
+            // List the edges connected to the current spanning tree's verticesccd
             for (int i=0;i<availableVertex.size();i++) {
                 int origin = availableVertex[i];
                 for (int j=0;j<copyAdjList[origin].size();j++) { // Assume the undirected graph is a double directed
