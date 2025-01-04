@@ -41,9 +41,7 @@ lesson39 = std::map
 
 Next Lessons: (Refer to: https://chatgpt.com/c/6768ea82-0b98-8005-b8e6-c4c06f9627ac)
 - Lambda expressions
-- Iterator
-- const auto 
-- Example of complex types
+- const auto
 - decltype
 - Custom Structure implementation (struct)
 - review Enum & other things you forgot

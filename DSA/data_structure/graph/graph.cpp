@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <climits>
 #include <queue>
+#include <algorithm>
 
 class Graph {
     public:
@@ -212,11 +213,10 @@ class Graph {
             // boundary: the next destination doesn't have path to the final destination
         }
 
-        // Connected undirected Graph
-        void prims() {
-            // Find the smallest Edge
-            std::priority_queue<std::pair<Edge, int>, std::vector<std::pair<Edge, int>>, ComparePrims> edges;
-            std::unordered_map<Edge,int> initialEdges;
+        std::pair<Edge, int> smallestEdge() {
+            std::priority_queue<std::pair<Edge, int>, ComparePrims> edgesQueue;
+
+            // List all the edges to the priority queue according to its weight 
             for (int i=0;i<adjList.size();i++) {
                 for (int j=0;j<adjList[i].size();j++) {
                     Edge tempEdges;
@@ -224,12 +224,77 @@ class Graph {
                     tempEdges.destination = adjList[i][j].first;
                     int cost = adjList[i][j].second;
                     std::pair<Edge,int> tempEdgesPair(tempEdges,cost);
-                    edges.push(tempEdgesPair);
+                    edgesQueue.push(tempEdgesPair);
                 }
-                
+            }
+            return edgesQueue.top();
+        }
+
+        // Connected undirected Graph
+        void prims() {
+            // Find the smallest Edge
+            // std::priority_queue<std::pair<Edge, int>, std::vector<std::pair<Edge, int>>, ComparePrims> edges;
+            std::priority_queue<std::pair<Edge, int>, ComparePrims> edgesQueueTemp;
+            std::vector<std::vector<std::pair<int,int>>> copyAdjList = adjList;
+            std::vector<std::vector<std::pair<int,int>>> newAdjList(vertex.size());
+            std::vector<int> availableVertex;
+            std::unordered_map<Edge,int> initialEdges;
+            int cost = 0;
+            
+            // Get the initial (smallest) edge. First edge of the spanning tree
+            std::pair<Edge, int> currentEdge = smallestEdge();
+
+            // YOU DON'T ACTUALLY HAVE TO USE PRIORITY QUEUE. JUST USE TEMPORARY VARIABLE. IF THE VARIABLE IS SMALLER, CHANGE, IF NOT ITERATE. 
+            // IN THE END, YOU WILL GET THE SMALLEST VARIABLE. THIS WAY, YOU CAN GET THE INDEX[I][J] IN THE COPYADJLIST SO THAT YOU CAN DELETE IT 
+            // MUCH EASIER
+            
+            // LOOP STARTS HERE
+
+            // Update the total cost
+            cost += currentEdge.second;
+
+            // Put the first edge into the new adjList
+            newAdjList[currentEdge.first.origin].push_back(std::pair<int,int>(currentEdge.first.destination, currentEdge.second));
+
+            // Delete the used edge in the copyAdjList
+            //copyAdjList[currentEdge.first.origin].erase();
+
+            // Add the spanning tree's vertex into a vector
+            bool originExist = false;
+            bool destinationExist = false;
+            for (int i=0;i<availableVertex.size();i++) {
+                // In assumption of simple graph (no self loop)
+                if (availableVertex[i] == currentEdge.first.origin) originExist = true;
+                if (availableVertex[i] == currentEdge.first.destination) destinationExist = true;
+            }
+            if (originExist) availableVertex.push_back(currentEdge.first.origin);
+            if (destinationExist) availableVertex.push_back(currentEdge.first.destination);
+
+            // MISSING 1 CONDITIONAL => LIST THE EDGES THAT DOESN'T CREATE A CYCLE. IF THE EDGE CREATE A CYCLE, DELETE IT FROM THE COPYADJLIST
+            // List the edges connected to the current spanning tree's vertices
+            for (int i=0;i<availableVertex.size();i++) {
+                int origin = availableVertex[i];
+                for (int j=0;j<copyAdjList[origin].size();j++) { // Assume the undirected graph is a double directed
+                    Edge tempEdges;
+                    tempEdges.origin = origin; 
+                    tempEdges.destination = copyAdjList[origin][j].first;
+                    int cost = copyAdjList[i][j].second;
+                    std::pair<Edge,int> tempEdgesPair(tempEdges,cost);
+                    edgesQueueTemp.push(tempEdgesPair);
+                }
             }
 
-            // Find the smallest edge of non-connected vertex (create a list of non-connected vertex)
+            // IT WILL CREATE A CYCLE IF THE BOTH THE EDGE'S VERTICES ARE ALREADY IN AVAILABLEVERTEX
+
+            // Get the smallest edge connected to the current spanning tree's vertices
+            currentEdge = edgesQueueTemp.top();
+
+            // Clear the temporary priority queue
+            while (!edgesQueueTemp.empty()) {
+                edgesQueueTemp.pop();
+            }
+            // the smallest can actually be edited.
+            
 
         }
         

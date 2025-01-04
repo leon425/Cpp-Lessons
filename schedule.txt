@@ -1,0 +1,17 @@
+https://chatgpt.com/share/676e6487-65e0-8005-998c-90be9d8188d8
+- Create our own hashtable. for prim's algorithm
+- custom hash function. Refer from introduction to algorithm hashtable
+- Create random true and false BST. input is the length. should you create balanced and imbalance? how to measure it?
+
+NEXT:
+- insertVertex() and insertEdge() have possible error of inserting double hashmap value & ajdList index
+- deleteVertex() and deleteEdge() 
+- djikstra algorithm
+- simplify double directed graph into undirected graph
+
+
+Prim's Algorithm:
+- First, brainstorm the big picture again without coding. Build a clear blueprint & sequence. Where to loop, the order, etc.
+When every single conditional and every single steps is measured & tested, then you code.
+- Change to normal undirected graph
+- Add conditional whether the new edge creates a cycle or not
