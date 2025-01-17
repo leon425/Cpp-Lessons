@@ -24,7 +24,9 @@ auto max (T x, U y) {
 int main() {
 // Function Template = Describes what a function looks like.
                     // To generate as many overloaded function as needed, each using different data types
+                    // Don't need to specify the data type during runtime - can be anything (int, double, char)
 
+                    // Templates are compiled when used (instantiated), not when defined.
     
 
 

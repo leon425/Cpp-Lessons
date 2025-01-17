@@ -37,7 +37,9 @@ lesson36 = std::stack
 lesson37 = std::queue
 lesson38 = std::list
 lesson39 = std::map
-
+lesson40 = std::set
+lesson41 = Custom Hash Function
+lesson42 = operator()
 
 Next Lessons: (Refer to: https://chatgpt.com/c/6768ea82-0b98-8005-b8e6-c4c06f9627ac)
 - Lambda expressions
